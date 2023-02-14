@@ -1,0 +1,21 @@
+// Release for v1.1.3 (release date 2/19/23)
+
+// BUGS // 
+// Possible to make buttons display in an index for cleaner code?
+// **SQUASHED** Global theme change isn't saving when app is closed
+// More dynamic TotalDisplay component
+// More dynamic format to display everything on screen when more inputs are needed
+// Fix icon image size
+// Playstore still gives warnings on build (remember to read them)
+
+// ADDITIONS // 
+// Add logo to Home Screen
+// Add more themes that affect background color
+
+
+
+// FULL RELEASE ADDITIONS // 
+// Figure out release for IOS
+// Add submit bug option to Home Screen (maybe)
+// Ability to buy themes
+// App free or paid?? If paid no more than $2

@@ -1,0 +1,44 @@
+{
+  "expo": {
+    "name": "Construction Calculator",
+    "slug": "construcitoncalculator",
+    "version": "1.1.2",
+    "orientation": "portrait",
+    "icon": "./assets/iconimage.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0D1117"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/39396bd8-8a88-4598-b1e5-b20e17825114"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.dylanmh97.constructioncalculator",
+      "versionCode": 6,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/iconimage.png",
+        "backgroundColor": "#0D1117"
+      }
+    },
+    "web": {
+      "favicon": "./assets/iconimage.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "39396bd8-8a88-4598-b1e5-b20e17825114"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    }
+  }
+}
