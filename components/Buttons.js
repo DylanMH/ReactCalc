@@ -7,8 +7,8 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 
 // Local Imports
-import { FONTS, SHADOWS, SIZES, COLORS } from "../constants";
-import { ThemeContext } from "../ThemeContext"
+import { FONTS, SIZES, SHADOWS } from "../constants";
+import { ThemeContext } from "../context/ThemeContext"
 
 const Buttons = ({ onPress, title, icon, size }) => {
   const { selectedTheme } = useContext(ThemeContext);
@@ -16,12 +16,11 @@ const Buttons = ({ onPress, title, icon, size }) => {
     button: {
       width: 300,
       height: 50,
-      borderRadius: SIZES.medium,
-      ...SHADOWS.dark,
+      borderRadius: SIZES.extraLarge,
       justifyContent: "center",
       alignItems: "center",
       flexDirection: "row",
-      marginVertical: 30,
+      marginVertical: 20,
       backgroundColor: selectedTheme.backgroundColor,
     },
     text: {
@@ -34,7 +33,7 @@ const Buttons = ({ onPress, title, icon, size }) => {
 
   return (
     <TouchableOpacity
-      style={[styles.button, { backgroundColor: COLORS.gray }]}
+      style={[styles.button, { backgroundColor: selectedTheme.buttonColor }]}
       onPress={onPress}
     >
       <FontAwesomeIcon

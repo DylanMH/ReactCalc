@@ -1,29 +1,40 @@
 // React Imports
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
+import { useContext } from "react";
 
 // Local Imports
 import { COLORS, FONTS, SIZES } from "../constants";
+import { ThemeContext } from "../context/ThemeContext"; 
 
 const HomeHeader = () => {
+  const { selectedTheme } = useContext(ThemeContext);
   const styles = StyleSheet.create({
     container: {
-      flex: 1,
       justifyContent: "center",
       alignItems: "center",
+      flexDirection: "column",
     },
     text: {
-      marginTop: 20,
+    ...FONTS.h1,
       color: COLORS.white,
-      fontFamily: FONTS.bold,
-      fontSize: SIZES.extraLarge,
-      textAlign: "center",
-      flexWrap: "nowrap",
+      fontSize: SIZES.h1,
+      opacity: 0.8,
+      color: selectedTheme.textColor,
+    },
+    image: {
+      width: 100,
+      height: 100,
+      marginTop: 20,
     },
   });
 
   return (
-    <View styles={styles.container}>
-      <Text style={styles.text}>Choose your calculation....</Text>
+    <View style={styles.container}>
+      <Image
+        style={styles.image}
+        source={require("../assets/iconimage.png")}
+      ></Image>
+      <Text style={styles.text}>Choose your calculation...</Text>
     </View>
   );
 };

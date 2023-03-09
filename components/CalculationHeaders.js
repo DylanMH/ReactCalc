@@ -9,9 +9,9 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 // Local Imports
 import { FONTS, SIZES } from "../constants";
-import { ThemeContext } from "../ThemeContext";
+import { ThemeContext } from "../context/ThemeContext";
 
-const CalculationHeaders = ({ title }) => {
+const CalculationHeaders = ({ title, titleFontSize }) => {
   const navigation = useNavigation();
   const { selectedTheme } = useContext(ThemeContext);
 
@@ -54,7 +54,7 @@ const CalculationHeaders = ({ title }) => {
         <FontAwesomeIcon style={styles.arrow} icon={faArrowLeft} size={30} />
       </TouchableOpacity>
       <View style={styles.titleContainer}>
-        <Text style={styles.title} numberOfLines={1}>
+        <Text style={[styles.title, { fontSize: titleFontSize}]} numberOfLines={1}>
           {title}
         </Text>
       </View>

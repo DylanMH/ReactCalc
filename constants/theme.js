@@ -1,35 +1,9 @@
+// Main colors used for themes
 export const COLORS = {
   dark: "#0D1117",
-  gray: "#21262D",
-  mint: "#22F1BF",
-  purple: "#7371FF",
-  white: "#FFFFFF",
-  forestGreen: "#228B22",
-  darkGoldenrod: "#B8860B",
-  sienna: "#A0522D",
-  burnOrange: "#CC5500",
-  oliveGreen: "#808000",
 };
 
-
-export const defaultTheme = {
-    name: "Default",
-    backgroundColor: COLORS.dark,
-    secondaryColor: COLORS.gray,
-    textColor: COLORS.forestGreen,
-    iconColor: COLORS.darkGoldenrod,
-    labelColor: COLORS.white,
-  }
-
-export const darkAltTheme = {
-    name: "Dark Alt",
-    backgroundColor: COLORS.dark,
-    secondaryColor: COLORS.gray,
-    textColor: COLORS.mint,
-    iconColor: COLORS.purple,
-    labelColor: COLORS.white,
-  }
-
+// Size variables
 export const SIZES = {
   base: 8,
   small: 12,
@@ -40,6 +14,7 @@ export const SIZES = {
   header: 30,
 };
 
+// Font sizes
 export const FONTS = {
   bold: "InterBold",
   semiBold: "InterSemiBold",
@@ -48,6 +23,7 @@ export const FONTS = {
   light: "InterLight",
 };
 
+// Shadow designs
 export const SHADOWS = {
   light: {
     shadowColor: COLORS.gray,
@@ -61,7 +37,7 @@ export const SHADOWS = {
     elevation: 3,
   },
   medium: {
-    shadowColor: COLORS.gray,
+    shadowColor: COLORS.purple,
     shadowOffset: {
       width: 0,
       height: 3,
@@ -69,16 +45,16 @@ export const SHADOWS = {
     shadowOpacity: 0.29,
     shadowRadius: 4.65,
 
-    elevation: 7,
+    elevation: 14,
   },
   dark: {
     shadowColor: COLORS.oliveGreen,
     shadowOffset: {
-      width: 0,
-      height: 7,
+      width: 100,
+      height: 100,
     },
-    shadowOpacity: 0.5,
-    shadowRadius: 9.5,
+    shadowOpacity: 100,
+    shadowRadius: 100,
 
     elevation: 14,
   },

@@ -1,6 +1,9 @@
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from "@react-navigation/stack";
 import { useFonts } from "expo-font";
 
 import Home from "./screens/Home";
@@ -9,7 +12,8 @@ import Concrete from "./screens/Concrete";
 import Dowels from "./screens/Dowels";
 import Rebar from "./screens/Rebar";
 import ThemeSelector from "./screens/ThemeSelector";
-import { ThemeProvider } from "./ThemeContext";
+
+import { ThemeProvider } from "./context/ThemeContext";
 
 const Stack = createStackNavigator();
 
@@ -28,7 +32,10 @@ const App = () => {
     <ThemeProvider>
       <NavigationContainer>
         <Stack.Navigator
-          screenOptions={{ headerShown: false }}
+          screenOptions={{
+            headerShown: false,
+            ...TransitionPresets.SlideFromRightIOS,
+          }}
           initialRouteName="Home"
         >
           <Stack.Screen name="Home" component={Home} />

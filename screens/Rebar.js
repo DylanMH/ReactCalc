@@ -1,6 +1,6 @@
 // React Imports
 import { StatusBar, View } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
 
 // Component Imports
 import CalculationHeaders from "../components/CalculationHeaders";
@@ -8,7 +8,9 @@ import UserInput from "../components/UserInput";
 import TotalDisplay from "../components/TotalDisplay";
 
 // Local Imports
-import { COLORS } from "../constants";
+import { COLORS, SIZES } from "../constants";
+import { ThemeContext } from "../context/ThemeContext";
+
 
 // Main Component
 const Rebar = () => {
@@ -18,6 +20,8 @@ const Rebar = () => {
   const [rebarGrid, setRebarGrid] = React.useState();
   const [rebarLength, setRebarLength] = React.useState(20);
   const [edgeGrid, setEdgeGrid] = React.useState(3);
+  const { selectedTheme } = useContext(ThemeContext);
+
 
   // Function to calculate the rebar total
   const calculate = () => {
@@ -39,38 +43,59 @@ const Rebar = () => {
     }
   };
 
-  return (
-    <View style={{ backgroundColor: COLORS.dark, height: "100%" }}>
-      <StatusBar barStyle="light-content" backgroundColor={COLORS.navymedium} />
-      <CalculationHeaders title="Rebar Calculation" />
-      <UserInput
-        title="Slab Length (ft)"
-        placeholder="0"
-        onChangeText={(val) => setSlabLength(val)}
-      />
-      <UserInput
-        title="Slab Width (ft)"
-        placeholder="0"
-        onChangeText={(val) => setSlabWidh(val)}
-      />
-      <UserInput
-        title="Rebar Grid (inch)"
-        placeholder="0"
-        onChangeText={(val) => setRebarGrid(val)}
-      />
-      <UserInput
-        title="Rebar Length (ft)"
-        placeholder="20"
-        onChangeText={(val) => setRebarLength(val)}
-      />
-      <UserInput
-        title="Edge Grid (inch)"
-        placeholder="3"
-        onChangeText={(val) => setEdgeGrid(val)}
-      />
-      <View style={{ height: "1%", paddingTop: 3 }}>
-        <TotalDisplay total={`Total sticks needed:  \n${calculate()}`} />
+  const inputFields = [
+    {
+      title: "Slab Length (ft)",
+      placeholder: "0",
+      onChangeText: (val) => setSlabLength(val),
+    },
+    {
+      title: "Slab Width (ft)",
+      placeholder: "0",
+      onChangeText: (val) => setSlabWidh(val),
+    },
+    {
+      title: "Rebar Grid (inch)",
+      placeholder: "0",
+      onChangeText: (val) => setRebarGrid(val),
+    },
+    {
+      title: "Rebar Length (ft)",
+      placeholder: "20",
+      onChangeText: (val) => setRebarLength(val),
+    },
+    {
+      title: "Edge Grid (inch)",
+      placeholder: "3",
+      onChangeText: (val) => setEdgeGrid(val),
+    },
+  ];
+
+  const renderInputs = () => {
+    return inputFields.map((field, index) => (
+      <View
+        style={{
+          justifyContent: "space-between",
+        }}
+        key={index}
+      >
+        <UserInput
+          title={field.title}
+          placeholder={field.placeholder}
+          onChangeText={field.onChangeText}
+        />
       </View>
+    ));
+  };
+
+  return (
+    <View style={{ backgroundColor: selectedTheme.backgroundColor, height: "100%" }}>
+      <StatusBar barStyle="light-content" backgroundColor={COLORS.navymedium} />
+      <CalculationHeaders titleFontSize={SIZES.extraLarge} title="Rebar Calculation" />
+      <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center"}}>
+      {renderInputs()}
+      </View>
+        <TotalDisplay total={`Total sticks needed:  \n${calculate()}`} />
     </View>
   );
 };

@@ -4,18 +4,18 @@ import React, { createContext, useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // Imported Themes
-import { defaultTheme, darkAltTheme } from "./constants/theme";
+import { appThemes } from './appThemes'
 
 const THEME_KEY = "SELECTED_THEME";
 
 export const ThemeContext = createContext({
-  themes: [defaultTheme, darkAltTheme],
-  selectedTheme: defaultTheme,
+  themes: [appThemes.darkDefault, appThemes.lightDefault, appThemes.darkAlt],
+  selectedTheme: appThemes.darkDefault,
   setSelectedTheme: () => {},
 });
 
 export const ThemeProvider = ({ children }) => {
-  const [selectedTheme, setSelectedTheme] = useState(defaultTheme);
+  const [selectedTheme, setSelectedTheme] = useState(appThemes.darkDefault);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export const ThemeProvider = ({ children }) => {
   return (
     <ThemeContext.Provider
       value={{
-        themes: [defaultTheme, darkAltTheme],
+        themes: [appThemes.darkDefault, appThemes.lightDefault, appThemes.darkAlt],
         selectedTheme,
         setSelectedTheme,
       }}

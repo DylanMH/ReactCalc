@@ -3,8 +3,8 @@ import { View, Text, StyleSheet } from "react-native";
 import React, { useContext } from "react";
 
 // Local Imports
-import { ThemeContext } from "../ThemeContext";
-import { FONTS, SIZES, SHADOWS } from "../constants";
+import { ThemeContext } from "../context/ThemeContext";
+import { FONTS, SIZES } from "../constants";
 
 const TotalDisplay = ({ total }) => {
   const { selectedTheme } = useContext(ThemeContext);
@@ -17,12 +17,11 @@ const TotalDisplay = ({ total }) => {
       justifyContent: "center",
       alignContent: "center",
       alignItems: "center",
-      backgroundColor: selectedTheme.secondaryColor,
+      backgroundColor: selectedTheme.totalColor,
       width: 325,
       height: 75,
-      borderRadius: SIZES.medium,
+      borderRadius: SIZES.extraLarge,
       marginTop: 10,
-      ...SHADOWS.dark
     },
     text: {
       textAlign: "center",

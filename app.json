@@ -2,7 +2,7 @@
   "expo": {
     "name": "Construction Calculator",
     "slug": "construcitoncalculator",
-    "version": "1.1.2",
+    "version": "1.2",
     "orientation": "portrait",
     "icon": "./assets/iconimage.png",
     "userInterfaceStyle": "light",
@@ -22,8 +22,11 @@
       "supportsTablet": true
     },
     "android": {
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-7891401297237179/8152620861"
+      },
       "package": "com.dylanmh97.constructioncalculator",
-      "versionCode": 6,
+      "versionCode": 8,
       "adaptiveIcon": {
         "foregroundImage": "./assets/iconimage.png",
         "backgroundColor": "#0D1117"

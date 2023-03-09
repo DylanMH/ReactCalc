@@ -1,36 +1,52 @@
 // React Imports
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { View, TouchableOpacity, Text } from "react-native";
 
 // Local Imports
-import { ThemeContext } from "../ThemeContext";
+import { ThemeContext } from "../context/ThemeContext";
 import CalculationHeaders from "../components/CalculationHeaders";
+import { SIZES, FONTS, SHADOWS } from "../constants";
 
 const ThemeSelector = () => {
   const { themes, selectedTheme, setSelectedTheme } = useContext(ThemeContext);
 
   return (
-    <View>
-      <CalculationHeaders title="Themes" />
-      {themes.map((theme, index) => (
+    <View
+      style={{
+        backgroundColor: '#071C21',
+        height: "100%",
+        alignItems: "center",
+      }}
+    >
+      <CalculationHeaders titleFontSize={SIZES.medium} title={`Current theme: ${selectedTheme.name}`} />
+      {themes.map((theme) => (
         <TouchableOpacity
           key={theme.name}
           style={{
-            backgroundColor: theme.secondaryColor,
-            padding: 10,
+            justifyContent: "center",
+            alignItems: "center",
+            width: "85%",
+            height: "8%",
+            backgroundColor: theme.buttonColor,
+            padding: 5,
             margin: 10,
-            borderRadius: 5,
+            borderRadius: SIZES.extraLarge,
           }}
           onPress={() => {
             setSelectedTheme(theme);
           }}
         >
-          <Text style={{ color: theme.textColor }}>
-            Switch to theme {theme.name}
+          <Text
+            style={{
+              color: theme.textColor,
+              fontSize: SIZES.medium,
+              fontFamily: FONTS.semiBold,
+            }}
+          >
+            {theme.name}
           </Text>
         </TouchableOpacity>
       ))}
-      <Text>Current theme: {selectedTheme.name}</Text>
     </View>
   );
 };
